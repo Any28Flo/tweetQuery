@@ -1,24 +1,32 @@
-
-var $elemento = $("#btnEnviar");
+var $contador=0 ; 
 
 var insertaComentario = function(evento){
 	evento.preventDefault();
 	var $contenido = $("#comentario").val();
-	if ($contenido ===""){
-		alert("Inserta texto antes chavo!!");
+
+	if ($contenido ==="" )
+	{
+		alert("inserta comentario chavo");
 
 	}else{
 		var $comentario= $("#lista");
-		$comentario.append("<p>"+$contenido+"</p>");	
+		$comentario.append("<p>"+$contenido+"</p>");
 	}
+	console.log($contenido);
 	
 
 }
-var desac
+var cuentaLetras = function(){
+	$contador++;
+	console.log($contador);
+}
 var cargaPagina = function(){
 
-	
+	var $elemento = $("#btnEnviar");
+	var $contenido= $("#comentario");
+
 	$elemento.click(insertaComentario);
+	$contenido.keydown(cuentaLetras);
 }
 
 
