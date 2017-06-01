@@ -1,4 +1,4 @@
-var $contador=0 ; 
+var $contador=140 ; 
 var $elemento = $("#btnEnviar");
 var $contenido= $("#comentario");
 var insertaComentario = function(evento){
@@ -9,10 +9,9 @@ var insertaComentario = function(evento){
 
 }
 var cuentaLetras = function(){
-	var $muestraContador = ("#contador");
-	$muestraContador.append
-	$contador++;
-	console.log($contador);
+	$contador--;
+	var $muestraContador = $("#contador");
+	$muestraContador.text($contador);
 	if ($contador>=1 )
 	{
 		$elemento[0].disabled=false;
