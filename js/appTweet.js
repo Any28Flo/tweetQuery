@@ -1,6 +1,8 @@
-var $contador=140 ; 
+
+var $contador= 140; 
 var $elemento = $("#btnEnviar");
 var $contenido= $("#comentario");
+var $muestraContador = $("#contador");
 var insertaComentario = function(evento){
 	evento.preventDefault();
 	var $contenido = $("#comentario").val();
@@ -10,21 +12,31 @@ var insertaComentario = function(evento){
 }
 var cuentaLetras = function(){
 	$contador--;
-	var $muestraContador = $("#contador");
+	
 	$muestraContador.text($contador);
+
 	if ($contador>=1 )
 	{
 		$elemento[0].disabled=false;
-	}else
-	{
+	}else{
 		alert("Inserta comentario antes chavo");
+	}
+}
+var cambiaColor = function (){
+	if($contador <= 0)
+	{
+		$muestraContador[0].style.color="red";
+		
 	}
 }
 var cargaPagina = function(){
 
 	$elemento.click(insertaComentario);
 	$contenido.keydown(cuentaLetras);
+	$contenido.keydown(cambiaColor);
+
 }
 
 
 $(document).ready(cargaPagina);
+
